@@ -1,11 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
-export default class App extends React.Component {
+import Content from './src/components/content/Content'
+import Header from './src/components/header/Header'
+import Footer from './src/components/footer/Footer'
+
+class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Cross Fit!!!</Text>
+        <Header/>
+        <Content message="clicker"/>
+        <Footer/>
       </View>
     );
   }
@@ -19,3 +25,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
