@@ -1,9 +1,9 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
 class Header extends React.Component {
   constructor (props) {
-    super(props);
+    super(props)
 
     this.state = {
       logged: true
@@ -15,7 +15,7 @@ class Header extends React.Component {
       <View style={styles.header}>
         <Text style={styles.headerText}>Header {this.state.logged ? '(logged)' : 'Log In'}</Text>
       </View>
-    );
+    )
   }
 }
 
@@ -26,13 +26,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
     width: '100%',
     top: 0,
-    alignItems: 'center',
+    alignItems: 'center'
   },
 
   headerText: {
     color: '#fff',
     fontWeight: 'bold'
   }
-});
+})
 
-export default Header;
+export default Header

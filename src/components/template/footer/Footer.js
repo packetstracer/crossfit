@@ -1,9 +1,9 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
 class Footer extends React.Component {
   constructor (props) {
-    super(props);
+    super(props)
 
     this.state = {
       logged: true
@@ -15,7 +15,7 @@ class Footer extends React.Component {
       <View style={styles.header}>
         <Text style={styles.headerText}>Fatty Cuts 2019</Text>
       </View>
-    );
+    )
   }
 }
 
@@ -26,12 +26,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#800',
     width: '100%',
     bottom: 0,
-    alignItems: 'center',
+    alignItems: 'center'
   },
 
   headerText: {
-    color: '#fff',
+    color: '#fff'
   }
-});
+})
 
-export default Footer;
+export default Footer

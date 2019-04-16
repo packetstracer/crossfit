@@ -1,59 +1,62 @@
 import React from 'react'
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native'
 
+import BluetoothSenderUi from '../../ui/bluetooth-sender-ui/BluetoothSenderUi'
+import BluetoothReceiverUi from '../../ui/bluetooth-receiver-ui/BluetoothReceiverUi'
+import TapTempoUi from '../../ui/tap-tempo-ui/TapTempoUi'
+
 class BluetoothTestApp extends React.Component {
   constructor (props) {
-    super(props);
+    super(props)
 
     this.state = {
       textReceived: '',
       textToSend: '',
       textSent: false,
-      timesClicked: 0,
-    };
+      timesClicked: 0
+    }
 
-    this.handleChangeTextToSend = this.handleChangeTextToSend.bind(this);
-    this.handleClickTapButton = this.handleClickTapButton.bind(this);
+    this.handleChangeTextToSend = this.handleChangeTextToSend.bind(this)
+    this.handleClickTapButton = this.handleClickTapButton.bind(this)
+    this.handleSendText = this.handleSendText.bind(this)
   }
 
   handleChangeTextToSend (text) {
-    this.setState({ textToSend: text });
+    this.setState({ textToSend: text })
   }
 
   handleClickTapButton () {
-    this.setState(previousState => ({ timesClicked: previousState.timesClicked + 1 }));
+    this.setState(previousState => ({ timesClicked: previousState.timesClicked + 1 }))
   }
 
-  sendText (text) {
-    this.setState({ textSent: true });
-    this.setState({ textToSend: '' });
+  handleSendText (text) {
+    this.setState({ textSent: true })
+    this.setState({ textToSend: '' })
 
     setTimeout(() => {
-      console.log('Changing state...');
-      this.setState({ textSent: false });
-    }, 3000);
+      console.log('Changing state...')
+      this.setState({ textSent: false })
+    }, 3000)
   }
 
   render () {
     return (
       <View style={styles.text}>
-        <Text style={styles.receivedText}>
-          { this.state.textReceived ? this.state.textReceived : 'Waiting for message...' }
-        </Text>
-
-        <TextInput
-          style={{height: 40}}
-          placeholder="Type the text to send!"
-          value={this.state.textToSend}
-          onChangeText={this.handleChangeTextToSend}
-          onSubmitEditing={(text) => this.sendText(text)}
+        <BluetoothSenderUi
+          textToSend={this.state.textToSend}
+          textSent={this.state.textSent}
+          handleTextChange={this.handleChangeTextToSend}
+          handleSendText={this.handleSendText}
         />
-        <Text>{ this.state.textSent ? 'Text has been sent' : null }</Text>
-
-        <Button onPress={this.handleClickTapButton} title="Tap" />
-        <Text>Times clicked {this.state.timesClicked}</Text>
+        <BluetoothReceiverUi r
+          eceivedText={this.state.textReceived}
+        />
+        <TapTempoUi
+          timesClicked={this.state.timesClicked}
+          handleButtonClick={this.handleClickTapButton}
+        />
       </View>
-    );
+    )
   }
 }
 
@@ -64,12 +67,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#fff',
     color: '#333',
-    height: '90%',
+    height: '90%'
   },
 
-  receivedText: {
-    backgroundColor: 'dodgerblue',
-  },
-});
+  container: {
+    backgroundColor: 'dodgerblue'
+  }
+})
 
-export default BluetoothTestApp;
+export default BluetoothTestApp
