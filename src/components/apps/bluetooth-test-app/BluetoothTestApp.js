@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native'
 
-class Content extends React.Component {
+class BluetoothTestApp extends React.Component {
   constructor (props) {
     super(props);
 
@@ -72,4 +72,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Content;
+export default BluetoothTestApp;

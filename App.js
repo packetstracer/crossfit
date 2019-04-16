@@ -1,16 +1,17 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import Content from './src/components/content/Content'
-import Header from './src/components/header/Header'
-import Footer from './src/components/footer/Footer'
+import Header from './src/components/template/header/Header'
+import Footer from './src/components/template/footer/Footer'
+
+import BluetoothTestApp from './src/components/apps/bluetooth-test-app/BluetoothTestApp'
 
 class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
         <Header/>
-        <Content/>
+        <BluetoothTestApp/>
         <Footer/>
       </View>
     );
