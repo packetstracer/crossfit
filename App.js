@@ -10,7 +10,7 @@ class App extends React.Component {
     return (
       <View style={styles.container}>
         <Header/>
-        <Content message="clicker"/>
+        <Content/>
         <Footer/>
       </View>
     );
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
+    // alignItems: 'center',
     justifyContent: 'center',
   },
 });

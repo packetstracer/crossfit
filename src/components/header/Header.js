@@ -22,6 +22,7 @@ class Header extends React.Component {
 const styles = StyleSheet.create({
   header: {
     flex: 2,
+    justifyContent: 'center',
     backgroundColor: '#000',
     width: '100%',
     top: 0,

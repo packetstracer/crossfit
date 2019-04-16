@@ -22,6 +22,7 @@ class Footer extends React.Component {
 const styles = StyleSheet.create({
   header: {
     flex: 1,
+    justifyContent: 'center',
     backgroundColor: '#800',
     width: '100%',
     bottom: 0,
