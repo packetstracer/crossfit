@@ -20,7 +20,10 @@ class BluetoothSenderUi extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'dodgerblue'
+    flex: 7,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'dodgerblue',
   }
 })
 

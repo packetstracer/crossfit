@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native'
+import { StyleSheet, Text, View, TextInput, Button, Vibration } from 'react-native'
 
 import BluetoothSenderUi from '../../ui/bluetooth-sender-ui/BluetoothSenderUi'
 import BluetoothReceiverUi from '../../ui/bluetooth-receiver-ui/BluetoothReceiverUi'
@@ -33,10 +33,9 @@ class BluetoothTestApp extends React.Component {
     this.setState({ textSent: true })
     this.setState({ textToSend: '' })
 
-    setTimeout(() => {
-      console.log('Changing state...')
-      this.setState({ textSent: false })
-    }, 3000)
+    Vibration.vibrate(1000)
+
+    setTimeout(() => { this.setState({ textSent: false }) }, 3000)
   }
 
   render () {
