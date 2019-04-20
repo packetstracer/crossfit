@@ -1,11 +1,15 @@
 import React from 'react'
-import { StyleSheet, Text, View, TextInput, Button, Vibration } from 'react-native'
+import { StyleSheet, View, Button, Vibration } from 'react-native'
 
 import BluetoothSenderUi from '../../ui/bluetooth-sender-ui/BluetoothSenderUi'
 import BluetoothReceiverUi from '../../ui/bluetooth-receiver-ui/BluetoothReceiverUi'
 import TapTempoUi from '../../ui/tap-tempo-ui/TapTempoUi'
 
 class BluetoothTestApp extends React.Component {
+  static navigationOptions = {
+    title: 'Bluetooth Test',
+  }
+
   constructor (props) {
     super(props)
 
@@ -19,6 +23,12 @@ class BluetoothTestApp extends React.Component {
     this.handleChangeTextToSend = this.handleChangeTextToSend.bind(this)
     this.handleClickTapButton = this.handleClickTapButton.bind(this)
     this.handleSendText = this.handleSendText.bind(this)
+  }
+
+  handleReceivedText (text) {
+    // @TODO: invoke this function inside bluetooth message handler
+    this.setState({ textReceived: text })
+    Vibration.vibrate(1000)
   }
 
   handleChangeTextToSend (text) {
@@ -47,12 +57,17 @@ class BluetoothTestApp extends React.Component {
           handleTextChange={this.handleChangeTextToSend}
           handleSendText={this.handleSendText}
         />
-        <BluetoothReceiverUi r
-          eceivedText={this.state.textReceived}
+        <BluetoothReceiverUi
+          receivedText={this.state.textReceived}
         />
         <TapTempoUi
           timesClicked={this.state.timesClicked}
           handleButtonClick={this.handleClickTapButton}
+        />
+
+        <Button
+          title="Go to Settings"
+          onPress={() => this.props.navigation.navigate('Settings')}
         />
       </View>
     )
@@ -68,10 +83,6 @@ const styles = StyleSheet.create({
     color: '#333',
     height: '90%'
   },
-
-  container: {
-    backgroundColor: 'dodgerblue'
-  }
 })
 
 export default BluetoothTestApp
