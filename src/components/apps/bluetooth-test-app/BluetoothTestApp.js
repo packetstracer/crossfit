@@ -69,6 +69,10 @@ class BluetoothTestApp extends React.Component {
           title="Go to Settings"
           onPress={() => this.props.navigation.navigate('Settings')}
         />
+        <Button
+          title="Go to My Modal"
+          onPress={() => this.props.navigation.navigate('Modal')}
+        />
       </View>
     )
   }

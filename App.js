@@ -7,8 +7,9 @@ import { createStackNavigator, createAppContainer } from 'react-navigation'
 
 import BluetoothTestApp from './src/components/apps/bluetooth-test-app/BluetoothTestApp'
 import SettingsApp from './src/components/apps/settings-app/SettingsApp'
+import MyModalApp from './src/components/apps/my-modal-app/MyModalApp'
 
-const AppNavigator = createStackNavigator(
+const MainStack = createStackNavigator(
   {
     Home: BluetoothTestApp,
     Settings: SettingsApp
@@ -33,10 +34,20 @@ const AppNavigator = createStackNavigator(
       ),
     }
   },
-
 )
 
-const AppContainer = createAppContainer(AppNavigator)
+const RootStack = createStackNavigator(
+  {
+    Main: MainStack,
+    Modal: MyModalApp
+  },
+  {
+    mode: 'modal',
+    headerMode: 'none',
+  }
+)
+
+const AppContainer = createAppContainer(RootStack)
 
 class App extends React.Component {
   render () {
